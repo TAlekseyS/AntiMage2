@@ -28,7 +28,7 @@ public class CreditPaymentTest {
 
     @BeforeEach
     void setUp() {
-        open("http://localhost:8080/");
+        open("http://185.119.57.176:8080/");
         DataHelperSQL.clearTables();
     }
 
