@@ -29,7 +29,7 @@ public class CreditPaymentTest {
 
     @BeforeEach
     void setUp() {
-        Selenide.open("http://localhost:8080");
+        Selenide.open("http://185.119.57.176:8080");
         DataHelperSQL.clearTables();
     }
 
