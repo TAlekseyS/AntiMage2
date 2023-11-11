@@ -44,9 +44,9 @@ public class CreditPaymentTest {
                 checkApprovedForm();
         assertEquals("APPROVED", DataHelperSQL.getCreditStatus());
     }
-}
 
-/*
+
+
     @SneakyThrows
     @Test
     void shouldStatusBuyCreditValidDeclinedCard() {// 2. Отклонение оплаты по заблокированной карте
@@ -263,4 +263,4 @@ public class CreditPaymentTest {
 }
 
 
- */
+ 
