@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.CardInfo;
 
+
 import ru.netology.data.DataHelperSQL;
 import ru.netology.page.StartPage;
 
@@ -18,19 +19,20 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static ru.netology.data.DataHelper.*;
 
 public class CreditPaymentTest {
-    @BeforeAll
-    static void setUpAll() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-    }
+  //  @BeforeAll
+   // static void setUpAll() {
+       // SelenideLogger.addListener("allure", new AllureSelenide());
+   // }
 
-    @AfterAll
-    static void tearDownAll() {
-        SelenideLogger.removeListener("allure");
-    }
+   // @AfterAll
+   // static void tearDownAll() {
+       // SelenideLogger.removeListener("allure");
+   // }
 
     @BeforeEach
     void setUp() {
-        open("http://localhost:8080");
+        Selenide.open("http://localhost:8080/");
+        //open("http://localhost:8080");
         DataHelperSQL.clearTables();
     }
 
