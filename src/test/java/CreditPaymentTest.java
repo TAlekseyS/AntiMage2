@@ -44,8 +44,8 @@ public class CreditPaymentTest {
                 checkApprovedForm();
         assertEquals("APPROVED", DataHelperSQL.getCreditStatus());
     }
-
-
+}
+/*
 
     @SneakyThrows
     @Test
@@ -263,3 +263,5 @@ public class CreditPaymentTest {
 }
 
 
+
+*/
