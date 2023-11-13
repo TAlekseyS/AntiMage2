@@ -1,5 +1,6 @@
 package ru.netology.data;
 
+import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
@@ -8,8 +9,16 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+import static com.codeborne.selenide.Condition.attribute;
+
+
+
+
+
 public class DataHelper {
-    // Генерация для поля "Номер Карты"
+
+
+     // Генерация для поля "Номер Карты"
     public static String getValidActiveCard() {
         return "4444 4444 4444 4441";
     }

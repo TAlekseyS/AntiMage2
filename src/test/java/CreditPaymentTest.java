@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -11,7 +12,11 @@ import ru.netology.data.CardInfo;
 
 
 import ru.netology.data.DataHelperSQL;
+import ru.netology.page.CreditPage;
+import ru.netology.page.PressKupit;
 import ru.netology.page.StartPage;
+
+import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,21 +24,27 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static ru.netology.data.DataHelper.*;
 
 public class CreditPaymentTest {
-  //  @BeforeAll
-   // static void setUpAll() {
-       // SelenideLogger.addListener("allure", new AllureSelenide());
-   // }
+    /*
+      @BeforeAll
+     static void setUpAll() {
+     SelenideLogger.addListener("allure", new AllureSelenide());
+     }
 
-   // @AfterAll
-   // static void tearDownAll() {
-       // SelenideLogger.removeListener("allure");
-   // }
+     @AfterAll
+     static void tearDownAll() {
+     SelenideLogger.removeListener("allure");
+     }
 
+
+     */
     @BeforeEach
     void setUp() {
-        Selenide.open("http://localhost:8080/");
-        //open("http://localhost:8080");
-        DataHelperSQL.clearTables();
+        //Selenide.open("http://localhost:8080/"); //надо будет использовать это
+        open("http://localhost:8080");
+        //var pressKupit = new PressKupit();
+       // DataHelperSQL.clearTables();
+        //var startPage = new StartPage();
+       // var creditPage = startPage.checkCreditButton();
     }
 
 
@@ -43,11 +54,13 @@ public class CreditPaymentTest {
         CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getNextYear(), getValidOwner(), getValidCVC());
         val mainPage = new StartPage();
         mainPage.checkCreditButton().
-                fillingForm(card).
+                completionForm(card).
                 checkApprovedForm();
         assertEquals("APPROVED", DataHelperSQL.getCreditStatus());
+
     }
 }
+
 /*
 
     @SneakyThrows
@@ -266,5 +279,6 @@ public class CreditPaymentTest {
 }
 
 
+ */
 
-*/
+

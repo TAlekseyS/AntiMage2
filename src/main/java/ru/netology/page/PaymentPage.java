@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class PaymentPage {
+    //private SelenideElement buttonBuy = $(byText("Купить")); //МОЕ
     private SelenideElement cardNumber = $(byText("Номер карты")).parent().$(".input__control");
     private SelenideElement month = $(byText("Месяц")).parent().$(".input__control");
     private SelenideElement year = $(byText("Год")).parent().$(".input__control");

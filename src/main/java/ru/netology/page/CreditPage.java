@@ -8,9 +8,14 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class CreditPage {
-    private SelenideElement cardNumber = $(byText("Номер карты")).parent().$(".input__control");
+    private SelenideElement buttonBuy = $(byText("Купить")); //МОЕ
+    private static final SelenideElement form = $x("//form");
+
+    private SelenideElement cardNumber = form.$x(".//span[text()='Номер карты']//ancestor::div/span");
+   // private SelenideElement cardNumber = $(byText("Номер карты")).parent().$(".input__control");
     private SelenideElement month = $(byText("Месяц")).parent().$(".input__control");
     private SelenideElement year = $(byText("Год")).parent().$(".input__control");
     private SelenideElement owner = $(byText("Владелец")).parent().$(".input__control");
@@ -25,7 +30,10 @@ public class CreditPage {
     private SelenideElement approvedForm = $(".notification_status_ok");
     private SelenideElement declinedForm = $(".notification_status_error");
 
-    public CreditPage fillingForm(CardInfo card) {
+
+
+    public CreditPage completionForm(CardInfo card) {
+        //buttonBuy.click();
         cardNumber.setValue(card.getCardNumber());
         month.setValue(card.getMonth());
         year.setValue(card.getYear());
