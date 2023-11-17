@@ -7,13 +7,13 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class StartPage {
-    //private SelenideElement paymentButton = $(byText("Купить"));
+    private SelenideElement paymentButton = $(byText("Купить"));
     //private SelenideElement creditButton = $(byText("Купить в кредит"));
 
     private static final SelenideElement creditButton = $x("//span[text()='Купить в кредит']//ancestor::button");//АпроМашка
 
     public PaymentPage checkPaymentButton() {
-        creditButton.click();
+        paymentButton.click();
         return new PaymentPage();
 
     }

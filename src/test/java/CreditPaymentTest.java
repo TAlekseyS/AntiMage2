@@ -1,11 +1,5 @@
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
 import lombok.SneakyThrows;
 import lombok.val;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.CardInfo;
@@ -13,10 +7,7 @@ import ru.netology.data.CardInfo;
 
 import ru.netology.data.DataHelperSQL;
 import ru.netology.page.CreditPage;
-import ru.netology.page.PressKupit;
 import ru.netology.page.StartPage;
-
-import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -54,7 +45,7 @@ public class CreditPaymentTest {
         CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getNextYear(), getValidOwner(), getValidCVC());
         val mainPage = new StartPage();
         mainPage.checkCreditButton().
-                completionForm(card).
+                fillingForm(card).
                 checkApprovedForm();
         assertEquals("APPROVED", DataHelperSQL.getCreditStatus());
 

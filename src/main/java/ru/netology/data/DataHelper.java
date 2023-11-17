@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+
 import static com.codeborne.selenide.Condition.attribute;
 
 
@@ -17,6 +18,9 @@ import static com.codeborne.selenide.Condition.attribute;
 
 public class DataHelper {
 
+    public static String getFirstCardInfo() {
+        return "5559 0000 0000 0001";
+    }
 
      // Генерация для поля "Номер Карты"
     public static String getValidActiveCard() {

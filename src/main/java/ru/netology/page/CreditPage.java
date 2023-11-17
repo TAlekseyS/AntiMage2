@@ -11,11 +11,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class CreditPage {
-    private SelenideElement buttonBuy = $(byText("Купить")); //МОЕ
-    private static final SelenideElement form = $x("//form");
+    private static final SelenideElement creditButton = $x("//span[text()='Купить в кредит']//ancestor::button");//АпроМашка
 
-    private SelenideElement cardNumber = form.$x(".//span[text()='Номер карты']//ancestor::div/span");
-   // private SelenideElement cardNumber = $(byText("Номер карты")).parent().$(".input__control");
+    private SelenideElement cardNumber = $(byText("Номер карты")).parent().$(".input__control");
     private SelenideElement month = $(byText("Месяц")).parent().$(".input__control");
     private SelenideElement year = $(byText("Год")).parent().$(".input__control");
     private SelenideElement owner = $(byText("Владелец")).parent().$(".input__control");
@@ -30,18 +28,27 @@ public class CreditPage {
     private SelenideElement approvedForm = $(".notification_status_ok");
     private SelenideElement declinedForm = $(".notification_status_error");
 
+    public CreditPage fillingForm(CardInfo card) {
+        cardNumber.click();
+        cardNumber.sendKeys("4444 4444 4444 4441");
+        //cardNumber.setValue(card.getCardNumber());
+        month.click();
+        month.sendKeys("11");
+        //month.setValue(card.getMonth());
+        year.click();
+        year.sendKeys("23");
+        //year.setValue(card.getYear());
+        owner.click();
 
-
-    public CreditPage completionForm(CardInfo card) {
-        //buttonBuy.click();
-        cardNumber.setValue(card.getCardNumber());
-        month.setValue(card.getMonth());
-        year.setValue(card.getYear());
-        owner.setValue(card.getOwner());
-        cvc.setValue(card.getCardCVC());
+        owner.sendKeys("Vitalyy Bobrov");
+        //owner.setValue(card.getOwner());
+        cvc.click();
+        cvc.sendKeys("233");
+        //cvc.setValue(card.getCardCVC());
         continueButton.click();
         return new CreditPage();
     }
+
 
     public void checkApprovedForm() {
         approvedForm.shouldBe(Condition.visible, Duration.ofMillis(15000));

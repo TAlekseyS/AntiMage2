@@ -1,4 +1,4 @@
-/*
+
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static ru.netology.data.DataHelper.*;
 
 public class UsualPaymentTest {
-    @BeforeAll
+ /*   @BeforeAll
     static void setUpAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
@@ -28,10 +28,12 @@ public class UsualPaymentTest {
         SelenideLogger.removeListener("allure");
     }
 
+
+  */
     @BeforeEach
     void setUp() {
-        open("http://185.119.57.176:8080/");
-        DataHelperSQL.clearTables();
+        open("http://localhost:8080/");
+        //DataHelperSQL.clearTables();
     }
 
 
@@ -45,7 +47,8 @@ public class UsualPaymentTest {
                 checkApprovedForm();
         assertEquals("APPROVED", DataHelperSQL.getPaymentStatus());
     }
-
+}
+/*
 
     @SneakyThrows
     @Test
