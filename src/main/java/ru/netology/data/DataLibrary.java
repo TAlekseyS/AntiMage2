@@ -1,6 +1,5 @@
 package ru.netology.data;
 
-import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
@@ -16,7 +15,7 @@ import static com.codeborne.selenide.Condition.attribute;
 
 
 
-public class DataHelper {
+public class DataLibrary {
 
     public static String getFirstCardInfo() {
         return "5559 0000 0000 0001";

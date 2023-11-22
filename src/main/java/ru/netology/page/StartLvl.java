@@ -6,20 +6,20 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class StartPage {
+public class StartLvl {
     private SelenideElement paymentButton = $(byText("Купить"));
     //private SelenideElement creditButton = $(byText("Купить в кредит"));
 
     private static final SelenideElement creditButton = $x("//span[text()='Купить в кредит']//ancestor::button");//АпроМашка
 
-    public PaymentPage checkPaymentButton() {
+    public PaymentLvl checkPaymentButton() {
         paymentButton.click();
-        return new PaymentPage();
+        return new PaymentLvl();
 
     }
 
-    public CreditPage checkCreditButton() {
+    public CreditLvl checkCreditButton() {
         creditButton.click();
-        return new CreditPage();
+        return new CreditLvl();
     }
 }

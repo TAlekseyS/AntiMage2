@@ -1,21 +1,17 @@
 
 
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
 import lombok.SneakyThrows;
 import lombok.val;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.CardInfo;
-import ru.netology.data.DataHelperSQL;
-import ru.netology.page.StartPage;
+import ru.netology.data.DataSQLLibrary;
+import ru.netology.page.StartLvl;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static ru.netology.data.DataHelper.*;
+import static ru.netology.data.DataLibrary.*;
 
 public class UsualPaymentTest {
  /*   @BeforeAll
@@ -41,11 +37,11 @@ public class UsualPaymentTest {
     @Test
     void shouldStatusBuyPaymentValidActiveCard() { // 1. Успешная оплата по активной карте
         CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getNextYear(), getValidOwner(), getValidCVC());
-        val mainPage = new StartPage();
+        val mainPage = new StartLvl();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkApprovedForm();
-        assertEquals("APPROVED", DataHelperSQL.getPaymentStatus());
+        assertEquals("APPROVED", DataSQLLibrary.getPaymentStatus());
     }
 }
 /*

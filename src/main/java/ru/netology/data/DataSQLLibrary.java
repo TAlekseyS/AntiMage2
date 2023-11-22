@@ -7,7 +7,7 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.DriverManager;
 
-public class DataHelperSQL {
+public class DataSQLLibrary {
     private static String url = System.getProperty("db.url");
     private static String user = System.getProperty("db.user");
     private static String password = System.getProperty("db.password");
